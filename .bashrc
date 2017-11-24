@@ -125,3 +125,5 @@ eval $(~/OneDrive/Portable/weasel-pageant-1.0/weasel-pageant -r -a "/tmp/.weasel
 complete -cf sudo
 shopt -s autocd
 source /usr/share/autojump/autojump.bash 
+shopt -s checkwinsize
+
