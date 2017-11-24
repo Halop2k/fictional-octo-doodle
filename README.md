@@ -1,1 +1,2 @@
-# fictional-octo-doodle
+# Config files
+Different personal linux config files.
