@@ -120,6 +120,8 @@ fi
 
 #export SSH_AUTH_SOCK=$(mktemp -u /tmp/wsl-ssh.XXXXX.socket)
 #socat UNIX-LISTEN:${SSH_AUTH_SOCK},unlink-close=0,fork TCP4:127.0.0.1:13000 &
+
+#for ssh key passthrough via putty pageant for wsl 
 eval $(~/OneDrive/Portable/weasel-pageant-1.0/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER")
 
 complete -cf sudo
