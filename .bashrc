@@ -129,3 +129,6 @@ shopt -s autocd
 source /usr/share/autojump/autojump.bash 
 shopt -s checkwinsize
 
+#for tmuxinator
+source ~/.bin/tmuxinator.bash
+export EDITOR='vim'
