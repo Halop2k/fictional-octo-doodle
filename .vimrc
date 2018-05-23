@@ -25,6 +25,7 @@
  NeoBundle 'vim-airline/vim-airline'
  NeoBundle 'vim-airline/vim-airline-themes'
  NeoBundle 'w0rp/ale'
+ NeoBundle 'keith/parsec.vim'
 
 
  NeoBundleLazy 'rkaneko/groovy.vim',
@@ -40,6 +41,7 @@
  " this will conveniently prompt you to install them.
  NeoBundleCheck
 
+ " color wombat256mod
 color wombat256mod
 syntax on
 set number

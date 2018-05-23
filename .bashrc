@@ -132,3 +132,7 @@ shopt -s checkwinsize
 #for tmuxinator
 source ~/.bin/tmuxinator.bash
 export EDITOR='vim'
+
+#tmuxinator main
+
+source <(kubectl completion bash)
