@@ -2,6 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Run tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -121,18 +126,6 @@ fi
 #export SSH_AUTH_SOCK=$(mktemp -u /tmp/wsl-ssh.XXXXX.socket)
 #socat UNIX-LISTEN:${SSH_AUTH_SOCK},unlink-close=0,fork TCP4:127.0.0.1:13000 &
 
-#for ssh key passthrough via putty pageant for wsl 
-eval $(~/OneDrive/Portable/weasel-pageant-1.0/weasel-pageant -r -a "/tmp/.weasel-pageant-$USER")
-
 complete -cf sudo
 shopt -s autocd
-source /usr/share/autojump/autojump.bash 
 shopt -s checkwinsize
-
-#for tmuxinator
-source ~/.bin/tmuxinator.bash
-export EDITOR='vim'
-
-#tmuxinator main
-
-source <(kubectl completion bash)
