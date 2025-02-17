@@ -10,10 +10,10 @@
 
   outputs = inputs@{ nixpkgs, nixos-wsl, home-manager, ... }: {
     nixosConfigurations = {
-      artur = nixpkgs.lib.nixosSystem {
+      wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./system/wsl.nix
           nixos-wsl.nixosModules.default
           {
             system.stateVersion = "24.11";
@@ -24,10 +24,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.nixos = import ./home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass
-            # arguments to home.nix
+            home-manager.users.nixos = import ./home/default.nix;
           }
         ];
       };
