@@ -15,6 +15,8 @@
     # EDITOR = "vim";
   };
   home.packages = [
+    pkgs.zsh-powerlevel10k
   ];
+  home.file.".p10k.zsh".source = ./files/.p10k.zsh;
   programs.home-manager.enable = true;
 }
