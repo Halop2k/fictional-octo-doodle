@@ -5,7 +5,9 @@
     desktopManager.plasma6.enable = true;
   };
 
-#   environment.systemPackages = with pkgs; [
-#     pkgs.gnome-tweaks
-#   ];
+  environment.systemPackages = with pkgs; [
+    pkgs.kdePackages.kate
+    pkgs.vesktop
+    pkgs.element-desktop
+  ];
 }
