@@ -19,7 +19,6 @@
   };
 
   plugins = {
-
     # UI
     web-devicons.enable = true;
     lualine.enable = true;
@@ -74,6 +73,7 @@
       };
     };
     lazygit.enable = true;
+    tiny-inline-diagnostic.enable = true;
   };
   keymaps = [
     # Open lazygit within nvim. 

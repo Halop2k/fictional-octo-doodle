@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
     ];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.halop = {
     isNormalUser = true;
     description = "Halop";
@@ -15,7 +14,6 @@
       kdePackages.kate
       vesktop
       element-desktop
-    #  thunderbird
     ];
   };
 
