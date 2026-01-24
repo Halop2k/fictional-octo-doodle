@@ -19,7 +19,6 @@
   };
 
   plugins = {
-
     # UI
     web-devicons.enable = true;
     lualine.enable = true;
@@ -36,7 +35,7 @@
         command_palette = true;
         long_message_to_split = true;
         #inc_rename = false;
-        #lsp_doc_border = false;
+        lsp_doc_border = true;
       };
     };
     telescope = {
@@ -74,6 +73,7 @@
       };
     };
     lazygit.enable = true;
+    tiny-inline-diagnostic.enable = true;
   };
   keymaps = [
     # Open lazygit within nvim. 
@@ -82,4 +82,8 @@
       key = "<leader>gg";
     }
   ];
+  defaultEditor = true;
+  viAlias = true;
+  vimAlias = true;
+  vimdiffAlias = true;
 }

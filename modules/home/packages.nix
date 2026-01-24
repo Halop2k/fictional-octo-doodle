@@ -19,10 +19,9 @@
     nix-info
     nixpkgs-fmt
 
-
-    # On ubuntu, we need this less for `man home-configuration.nix`'s pager to
-    # work.
     less
+    just
+    keepassxc
   ];
 
   # Programs natively supported by home-manager.
@@ -35,10 +34,5 @@
     jq.enable = true;
     # Install btop https://github.com/aristocratos/btop
     btop.enable = true;
-    # Tmate terminal sharing.
-    tmate = {
-      enable = true;
-      #host = ""; #In case you wish to use a server other than tmate.io
-    };
   };
 }
