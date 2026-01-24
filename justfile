@@ -30,3 +30,4 @@ dev:
 [group('Main')]
 run:
   nix run
+  nixos-rebuild list-generations
