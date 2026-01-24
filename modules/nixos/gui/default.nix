@@ -1,6 +1,7 @@
 {
   imports = [
-    ./gnome.nix
+  #  ./gnome.nix
+    ./plasma6.nix
   ];
   services.xserver.enable = true;
 }
