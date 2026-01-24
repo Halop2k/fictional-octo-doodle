@@ -6,8 +6,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    pkgs.kdePackages.kate
-    pkgs.vesktop
-    pkgs.element-desktop
+    kdePackages.kate
+    vesktop
+    element-desktop
+    steam
   ];
 }
