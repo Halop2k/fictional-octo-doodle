@@ -22,6 +22,8 @@
     less
     just
     keepassxc
+
+    nerd-fonts.hack
   ];
 
   # Programs natively supported by home-manager.
