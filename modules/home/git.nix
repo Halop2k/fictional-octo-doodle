@@ -9,15 +9,19 @@
   programs = {
     git = {
       enable = true;
-      userName = config.me.fullname;
-      userEmail = config.me.email;
       ignores = [ "*~" "*.swp" ];
-      aliases = {
-        ci = "commit";
-      };
-      extraConfig = {
-        # init.defaultBranch = "master";
-        # pull.rebase = "false";
+      settings = {
+        user = {
+          name = config.me.fullname;
+          email = config.me.email;
+        };
+        alias = {
+          ci = "commit";
+        };
+        settings = {
+          # init.defaultBranch = "master";
+          # pull.rebase = "false";
+        };
       };
     };
     lazygit.enable = true;
