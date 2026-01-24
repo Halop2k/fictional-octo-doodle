@@ -1,3 +1,7 @@
-[NixOS-WSL](https://nix-community.github.io/NixOS-WSL/install.html)  
-`sudo nix-channel --update`  
-`sudo nixos-rebuild switch --flake .#wsl`  
+You have just created a nixos-unified-template flake.nix using NixOS.
+
+• Edit ./modules/nixos/*.nix to customize your configuration.
+• Run mv /etc/nixos/*.nix ./configurations/nixos/HOSTNAME/ to import your existing configuration.
+• Run nix --extra-experimental-features "nix-command flakes" run to apply the configuration.
+
+Enjoy!
