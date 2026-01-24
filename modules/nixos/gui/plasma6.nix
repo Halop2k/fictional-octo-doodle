@@ -6,7 +6,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    kdePackages.kate
     vesktop
     element-desktop
     steam

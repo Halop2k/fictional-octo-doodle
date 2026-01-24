@@ -3,5 +3,5 @@
   #  ./gnome.nix
     ./plasma6.nix
   ];
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 }
