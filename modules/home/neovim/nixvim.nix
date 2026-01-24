@@ -82,4 +82,8 @@
       key = "<leader>gg";
     }
   ];
+  defaultEditor = true;
+  viAlias = true;
+  vimAlias = true;
+  vimdiffAlias = true;
 }
