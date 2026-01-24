@@ -59,16 +59,21 @@
     lsp = {
       enable = true;
       servers = {
-        hls = {
-          enable = true;
-          installGhc = false; # Managed by Nix devShell
+        hls = { # haskell
+          enable = false;
+          installGhc = false;
         };
-        marksman.enable = true;
-        nil_ls.enable = true;
-        rust_analyzer = {
-          enable = true;
+        marksman.enable = true; # markdown
+        nil_ls.enable = true; # nix
+        rust_analyzer = { # rust
+          enable = false;
           installCargo = false;
           installRustc = false;
+        bashls.enable = true; # bash
+        cmake.enable = true; # make
+        jsonls.enable = true; # json
+        systemd_lsp.enable = true; # systemd
+        yamlls.enable = true; # https://nix-community.github.io/nixvim/plugins/lsp/servers/yamlls/index.html
         };
       };
     };

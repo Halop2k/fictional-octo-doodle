@@ -29,5 +29,6 @@ dev:
 # Activate the configuration
 [group('Main')]
 run:
+  rm /home/halop/.config/fontconfig/conf.d/10-hm-fonts.conf # workaround todo
   nix run
   nixos-rebuild list-generations
