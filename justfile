@@ -31,3 +31,8 @@ dev:
 run:
   nix run
   nixos-rebuild list-generations
+
+# Convert starship .toml to .json
+[group('dev')]
+convert:
+  nix-shell -p toml-cli.out --run "toml get ./modules/home/starship.toml  . > ./modules/home/starship.json"
