@@ -34,7 +34,7 @@
       settings = {
         add_newline = false;
         command_timeout = 1000;
-        format = "$character[](fg:white bg:#1a1a1a)[█](fg:#1a1a1a bg:#000000)$directory[█](fg:#1a1a1a bg:#000000)[$git_branch$git_state$git_status](bold bg:#000000 fg:white)$fill$cmd_duration[](fg:red bg:#000000)[ ](fg:black bg:red)$username[](fg:green bg:#1a1a1a)[󰌽 ](fg:green bg:#000000 inverted)$hostname$line_break[‎]()";
+        format = "$character[](fg:white bg:#1a1a1a)[█](fg:#1a1a1a bg:#000000)$directory[█](fg:#1a1a1a bg:#000000)[$git_branch$git_state$git_status](bold bg:#000000 fg:white)$fill$cmd_duration[](fg:#000000 bg:red)[ ](fg:black bg:red)$username[](fg:#1a1a1a bg:green)[󰌽 ](fg:green bg:#000000 inverted)$hostname$line_break[‎]()";
 
         character = {
           format = "$symbol";
