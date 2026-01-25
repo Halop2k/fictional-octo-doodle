@@ -38,8 +38,8 @@
 
         character = {
           format = "$symbol";
-          error_symbol = "[█](fg:red bg:#000000)[ ERROR](fg:red bg:#000000 inverted bold)[](fg:red bg:white)";
-          success_symbol = "[█](fg:bright-white bg:#000000)[ PROMPT](fg:bright-white bg:#000000 inverted bold)[](fg:bright-white bg:white)";
+          error_symbol = "[](fg:red bg:#000000)[  ERROR](fg:red bg:#000000 inverted bold)[](fg:red bg:white)";
+          success_symbol = "[](fg:bright-white bg:#000000)[ ](fg:bright-white bg:#000000 inverted bold)[](fg:bright-white bg:white)";
         };
 
         fill = {
