@@ -1,7 +1,6 @@
 { ... }:
 {
   programs = {
-    # on macOS, you probably don't need this
     bash = {
       enable = true;
       initExtra = ''
@@ -9,7 +8,6 @@
       '';
     };
 
-    # For macOS's default shell.
     zsh = {
       enable = true;
       autosuggestion.enable = true;
@@ -29,26 +27,24 @@
       '';
     };
 
-    # Type `z <pat>` to cd to some directory
     zoxide.enable = true;
 
-    # Better shell prompt!
     starship = {
       enable = true;
       settings = {
         add_newline = false;
         command_timeout = 1000;
-        format = "$character[](fg:white bg:bright-black)[█](fg:bright-black bg:black)$directory[█](fg:bright-black bg:black)[$git_branch$git_state$git_status](bold bg:black fg:white)$fill$cmd_duration[](fg:red bg:black)[ ](fg:black bg:red)$username[](fg:green bg:bright-black)[󰌽 ](fg:green bg:black inverted)$hostname$line_break[‎]()";
+        format = "$character[](fg:white bg:#1a1a1a)[█](fg:#1a1a1a bg:#000000)$directory[█](fg:#1a1a1a bg:#000000)[$git_branch$git_state$git_status](bold bg:#000000 fg:white)$fill$cmd_duration[](fg:red bg:#000000)[ ](fg:black bg:red)$username[](fg:green bg:#1a1a1a)[󰌽 ](fg:green bg:#000000 inverted)$hostname$line_break[‎]()";
 
         character = {
           format = "$symbol";
-          error_symbol = "[█](fg:red bg:black)[ ERROR](fg:red bg:black inverted bold)[](fg:red bg:white)";
-          success_symbol = "[█](fg:bright-white bg:black)[ PROMPT](fg:bright-white bg:black inverted bold)[](fg:bright-white bg:white)";
+          error_symbol = "[█](fg:red bg:#000000)[ ERROR](fg:red bg:#000000 inverted bold)[](fg:red bg:white)";
+          success_symbol = "[█](fg:bright-white bg:#000000)[ PROMPT](fg:bright-white bg:#000000 inverted bold)[](fg:bright-white bg:white)";
         };
 
         fill = {
           symbol = " ";
-          style = "bg:black";
+          style = "bg:#000000";
         };
 
         package = {
@@ -60,21 +56,21 @@
           show_milliseconds = false;
           disabled = false;
           format = "[󰞌 $duration ]($style)";
-          style = "bold bg:black";
+          style = "bold bg:#000000";
         };
 
         directory = {
           truncation_length = 5;
           format = "[󰉋 $path]($style)[$lock_symbol]($lock_style)";
-          style = "bold fg:bright-white bg:bright-black";
+          style = "bold fg:bright-white bg:#1a1a1a";
           read_only = "🔒";
           read_only_style = "bold white";
         };
 
         username = {
           show_always = true;
-          style_user = "bg:bright-black";
-          style_root = "bg:bright-black";
+          style_user = "bg:#1a1a1a";
+          style_root = "bg:#1a1a1a";
           format = "[ $user ]($style)";
         };
 
@@ -83,7 +79,7 @@
           ssh_only = false;
           trim_at = ".companyname.com";
           disabled = false;
-          style = "fg:green bg:bright-black";
+          style = "fg:green bg:#1a1a1a";
         };
 
         git_commit = {
@@ -100,7 +96,7 @@
 
         git_branch = {
           format = " 󰘬 $branch";
-          style = "bold fg:bright-black bg:black";
+          style = "bold fg:bright-black bg:#000000";
         };
 
         git_status = {
