@@ -11,6 +11,9 @@
     description = "Halop";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+  boot.kernelParams = [
+    "video=3840x2140@120"
+  ];
 
   hardware.graphics = {
     ## radv: an open-source Vulkan driver from freedesktop
