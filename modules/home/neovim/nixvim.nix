@@ -37,6 +37,14 @@
         #inc_rename = false;
         lsp_doc_border = true;
       };
+      lsp = {
+        message = {
+          enabled = true;
+          view = "popup";
+          # Optional: Adjust how long to wait before showing (milliseconds)
+          # timeout = 3000;
+        };
+      };
     };
     telescope = {
       enable = true;
@@ -49,6 +57,22 @@
           options.desc = "find via grep";
           action = "live_grep";
         };
+        "<leader>fb" = {
+          options.desc = "list buffers";
+          action = "buffers";
+        };
+        "<leader>fh" = {
+          options.desc = "help tags";
+          action = "help_tags";
+        };
+        "<leader>fk" = {
+          options.desc = "list keymaps";
+          action = "keymaps";
+        };
+        "<leader>fd" = {
+          options.desc = "list diagnostics";
+          action = "diagnostics";
+        };
       };
       extensions = {
         file-browser.enable = true;
@@ -58,6 +82,12 @@
     # Dev
     lsp = {
       enable = true;
+      keymaps = {
+        "<leader>k" = {
+          optons.desc = "LSP Hover";
+          action = "<cmd>lua vim.lsp.buf.hover()<CR>";
+        };
+      };
       servers = {
         hls = { # haskell
           enable = false;
@@ -78,13 +108,19 @@
       };
     };
     lazygit.enable = true;
-    tiny-inline-diagnostic.enable = true;
+    #tiny-inline-diagnostic.enable = true;
   };
   keymaps = [
     # Open lazygit within nvim. 
     {
       action = "<cmd>LazyGit<CR>";
       key = "<leader>gg";
+    }
+    {
+      action = "<cmd>lua vim.diagnostic.open_float()<CR>";
+      key = "<leader>k";
+      mode = "n";
+      options.desc = "Show line diagnostic";
     }
   ];
   defaultEditor = true;
