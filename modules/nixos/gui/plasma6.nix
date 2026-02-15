@@ -4,15 +4,15 @@
   services = {
     displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
-    niri = {
-      enable = true;
-      # config = import ./niri-config.nix { inherit (flake.inputs) self; };
-      settings = {
-        includes = lib.mkAfter [
-          ./config.kdl
-        ];
-      };
-    };
+#    niri = {
+#      enable = true;
+#      # config = import ./niri-config.nix { inherit (flake.inputs) self; };
+#      settings = {
+#        includes = lib.mkAfter [
+#          ./config.kdl
+#        ];
+#      };
+#    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -21,5 +21,7 @@
     steam
     rofi
     kitty
+    nix-output-monitor
+    gamescope
   ];
 }
