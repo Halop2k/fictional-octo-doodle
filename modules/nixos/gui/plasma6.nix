@@ -23,5 +23,6 @@
     kitty
     nix-output-monitor
     gamescope
+    protonup-ng
   ];
 }
