@@ -24,7 +24,7 @@
     nix-output-monitor
     gamescope
     protonup-ng
-    smplayer
+    vlc
     qbittorrent-enhanced
   ];
 }
