@@ -8,6 +8,7 @@
     enable = true;
     extraPlugins = with pkgs.vimPlugins; [
       nvim-notify
+      plenary-nvim # https://github.com/nix-community/nixvim/issues/4224
     ];
 
   };
