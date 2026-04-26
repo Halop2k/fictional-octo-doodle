@@ -11,7 +11,6 @@
     clipboard = "unnamedplus";
   };
 
-  # Keymaps
   globals = {
     mapleader = " ";
   };
@@ -25,13 +24,11 @@
       enable = true;
     };
     noice = {
-      # WARNING: This is considered experimental feature, but provides nice UX
       enable = true;
       settings.presets = {
         bottom_search = true;
         command_palette = true;
         long_message_to_split = true;
-        #inc_rename = false;
         lsp_doc_border = true;
       };
     };
@@ -83,12 +80,10 @@
         file-browser.enable = true;
       };
     };
-
     lsp = {
       enable = true;
       servers = {
         marksman.enable = true;
-        # nil_ls.enable = true;
         nixd = {
           enable = true;
           settings.nixd.nixpkgs.expr = "import <nixpkgs> { }";
@@ -97,16 +92,12 @@
         cmake.enable = true;
         jsonls.enable = true;
         systemd_lsp.enable = true;
-        yamlls.enable = true; # https://nix-community.github.io/nixvim/plugins/lsp/servers/yamlls/index.html
+        yamlls.enable = true;
       };
     };
-    lazygit.enable = true;
+    lazygit.enable = false;
   };
   keymaps = [
-    {
-      action = "<cmd>LazyGit<CR>";
-      key = "<leader>gg";
-    }
     {
       action = "<cmd>lua vim.diagnostic.open_float()<CR>";
       key = "<leader>k";

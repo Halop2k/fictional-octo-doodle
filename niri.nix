@@ -1,4 +1,4 @@
-{ flake, pkgs, ... }:
+{ flake, ... }:
 {
   imports = [
     # Import the NixOS module from the niri flake

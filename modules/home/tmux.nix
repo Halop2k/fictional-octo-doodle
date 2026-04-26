@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   programs.tmux = {
     enable = true;
@@ -25,30 +24,11 @@
           set -g @tokyo-night-tmux_time_format 24H
         '';
       }
-#      {
-#        plugin = resurrect;
-#        extraConfig = ''
-#          set -g @resurrect-strategy-nvim 'session'
-#          set -g @resurrect-capture-pane-contents 'on'
-#        '';
-#      }
-#      {
-#        plugin = continuum;
-#        extraConfig = ''
-#          set -g @continuum-restore 'on'
-#          set -g @contiuum-save-interval '60'
-#        '';
-#      }
       {
         plugin = tmux-which-key;
         extraConfig = ''
         '';
       }
-#      {
-#        plugin = tmux-session-wizard;
-#        extraConfig = ''
-#        '';
-#      }
     ];
   };
 }
