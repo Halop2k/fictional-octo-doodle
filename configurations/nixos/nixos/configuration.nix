@@ -24,5 +24,7 @@
     #extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
   };
 
+  hardware.spacenavd.enable = true;
+
   system.stateVersion = "25.11";
 }

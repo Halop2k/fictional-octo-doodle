@@ -6,27 +6,18 @@
       initExtra = ''
         # Custom bash profile goes here
       '';
+      historySize = 100000;
+      historyFileSize = 100000;
+      historyControl = ["ignoreboth"];
+      historyIgnore = ["?:??"];
+      sessionVariables = {
+        PROMPT_COMMAND = "history -a; history -c; history -r; $PROMPT_COMMAND";
+      };
     };
 
-    zsh = {
-      enable = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-      enableCompletion = true;
-      envExtra = ''
-        # Custom ~/.zshenv goes here
-      '';
-      profileExtra = ''
-        # Custom ~/.zprofile goes here
-      '';
-      loginExtra = ''
-        # Custom ~/.zlogin goes here
-      '';
-      logoutExtra = ''
-        # Custom ~/.zlogout goes here
-      '';
-    };
+    zsh.enable = false;
 
+    #https://github.com/ajeetdsouza/zoxide
     zoxide.enable = true;
 
     starship = {
