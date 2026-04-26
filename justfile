@@ -29,7 +29,7 @@ dev:
 # Activate the configuration
 [group('Main')]
 run:
-  nix run
+  nix run |& nom
   nixos-rebuild list-generations
 
 # Convert starship .toml to .json

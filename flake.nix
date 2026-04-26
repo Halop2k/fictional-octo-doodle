@@ -17,6 +17,8 @@
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.inputs.flake-parts.follows = "flake-parts";
+    niri.url = "github:YaLTeR/niri";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   # Wired using https://nixos-unified.org/guide/autowiring

@@ -11,7 +11,6 @@
     clipboard = "unnamedplus";
   };
 
-  # Keymaps
   globals = {
     mapleader = " ";
   };
@@ -25,41 +24,25 @@
       enable = true;
     };
     noice = {
-      # WARNING: This is considered experimental feature, but provides nice UX
       enable = true;
       settings.presets = {
         bottom_search = true;
         command_palette = true;
         long_message_to_split = true;
-        #inc_rename = false;
         lsp_doc_border = true;
       };
-      lsp = {
-        message = {
-          enabled = true;
-          view = "popup";
-          # Optional: Adjust how long to wait before showing (milliseconds)
-          # timeout = 3000;
-        };
+    };
+    cmp = {
+      enable = true;
+      autoEnableSources = true;
+      settings = {
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "buffer"; }
+          { name = "path"; }
+          { name = "luasnip"; }
+        ];
       };
-      cmp = {
-        enable = true;
-        autoEnableSources = true;
-        settings = {
-          completion = {
-            autocomplete = true;
-            completeopt = "menu,menuone,noselect";
-          };
-          preselect = "Item"; # Keep an item always selected
-          formatting = {
-            format = "lspkind.cmp_format"; # Requires `lspkind-nvim` plugin for icons
-          };
-        };
-      };
-      cmp-nvim-lsp.enable = true; # LSP as a completion source
-      cmp-buffer.enable = true; # Words from current buffer
-      cmp-path.enable = true; # File system paths
-      lua-snip.enable = true; # Snippet engine for cmp
     };
     telescope = {
       enable = true;
@@ -97,26 +80,24 @@
         file-browser.enable = true;
       };
     };
-
     lsp = {
       enable = true;
       servers = {
         marksman.enable = true;
-        nil_ls.enable = true;
+        nixd = {
+          enable = true;
+          settings.nixd.nixpkgs.expr = "import <nixpkgs> { }";
+        };
         bashls.enable = true;
         cmake.enable = true;
         jsonls.enable = true;
         systemd_lsp.enable = true;
-        yamlls.enable = true; # https://nix-community.github.io/nixvim/plugins/lsp/servers/yamlls/index.html
+        yamlls.enable = true;
       };
     };
-    lazygit.enable = true;
+    lazygit.enable = false;
   };
   keymaps = [
-    {
-      action = "<cmd>LazyGit<CR>";
-      key = "<leader>gg";
-    }
     {
       action = "<cmd>lua vim.diagnostic.open_float()<CR>";
       key = "<leader>k";

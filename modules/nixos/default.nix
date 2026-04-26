@@ -15,6 +15,14 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.firewall = {
+    enable = true;
+    logRefusedPackets = false;
+    # blizzard downloader
+    allowedTCPPorts = [ 80 443 1119 1120 3724 4000 6112 6113 6114 ];
+    allowedUDPPorts = [ 80 443 1119 1120 3724 4000 6112 6113 6114 ];
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Malta";
 

@@ -1,7 +1,6 @@
 { config, ... }:
 {
   home.shellAliases = {
-    g = "git";
     lg = "lazygit";
   };
 
@@ -26,5 +25,4 @@
     };
     lazygit.enable = true;
   };
-
 }

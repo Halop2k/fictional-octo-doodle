@@ -6,115 +6,119 @@
       initExtra = ''
         # Custom bash profile goes here
       '';
+      historySize = 100000;
+      historyFileSize = 100000;
+      historyControl = ["ignoreboth"];
+      historyIgnore = ["?:??"];
+      sessionVariables = {
+        PROMPT_COMMAND = "history -a; history -c; history -r; $PROMPT_COMMAND";
+      };
     };
 
-    zsh = {
-      enable = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-      enableCompletion = true;
-      envExtra = ''
-        # Custom ~/.zshenv goes here
-      '';
-      profileExtra = ''
-        # Custom ~/.zprofile goes here
-      '';
-      loginExtra = ''
-        # Custom ~/.zlogin goes here
-      '';
-      logoutExtra = ''
-        # Custom ~/.zlogout goes here
-      '';
-    };
+    zsh.enable = false;
 
+    #https://github.com/ajeetdsouza/zoxide
     zoxide.enable = true;
 
     starship = {
       enable = true;
       settings = {
-        add_newline = false;
-        command_timeout = 1000;
-        format = "$character[](fg:white bg:#1a1a1a)[█](fg:#1a1a1a bg:#000000)$directory[█](fg:#1a1a1a bg:#000000)[$git_branch$git_state$git_status](bold bg:#000000 fg:white)$fill$cmd_duration[](fg:#000000 bg:red)[ ](fg:black bg:red)$username[](fg:#1a1a1a bg:green)[󰌽 ](fg:green bg:#000000 inverted)$hostname$line_break[‎]()";
+        add_newline = true;
+        command_timeout = 2000;
+
+        format = ''
+          $env_var$os$username$hostname$kubernetes$directory$git_branch$git_status$python
+          $character
+        '';
 
         character = {
+          success_symbol = "╰⎯";
+          error_symbol = "╰⎯";
+        };
+
+        env_var = {
+          symbol = "╭╴";
+          variable = "SHELL";
           format = "$symbol";
-          error_symbol = "[](fg:red bg:#000000)[  ERROR](fg:red bg:#000000 inverted bold)[](fg:red bg:white)";
-          success_symbol = "[](fg:bright-white bg:#000000)[ ](fg:bright-white bg:#000000 inverted bold)[](fg:bright-white bg:white)";
-        };
-
-        fill = {
-          symbol = " ";
-          style = "bg:#000000";
-        };
-
-        package = {
           disabled = false;
         };
 
-        cmd_duration = {
-          min_time = 1000;
-          show_milliseconds = false;
+        os = {
+          format = "[$symbol](bold white) ";
           disabled = false;
-          format = "[󰞌 $duration ]($style)";
-          style = "bold bg:#000000";
-        };
-
-        directory = {
-          truncation_length = 5;
-          format = "[󰉋 $path]($style)[$lock_symbol]($lock_style)";
-          style = "bold fg:bright-white bg:#1a1a1a";
-          read_only = "🔒";
-          read_only_style = "bold white";
+          symbols = {
+            Windows = " ";
+            Arch = "󰣇";
+            Ubuntu = "";
+            Macos = "󰀵";
+            Unknown = "󰠥";
+          };
         };
 
         username = {
+          style_user = "yellow bold";
+          style_root = "black bold";
+          format = "[//](black bold) [$user](#2883ff) ";
+          disabled = false;
           show_always = true;
-          style_user = "bg:#1a1a1a";
-          style_root = "bg:#1a1a1a";
-          format = "[ $user ]($style)";
         };
 
         hostname = {
-          format = "[ $hostname ]($style)";
           ssh_only = false;
-          trim_at = ".companyname.com";
+          format = "[//](black bold) [$hostname](bold blue) ";
           disabled = false;
-          style = "fg:green bg:#1a1a1a";
         };
 
-        git_commit = {
-          commit_hash_length = 8;
-          style = "bold white";
-        };
-
-        status = {
-          style = "bg:transparent";
-          symbol = "💥 ";
-          format = "($style)";
-          disabled = false;
+        directory = {
+          truncation_length = 0;
+          truncation_symbol = "…/";
+          home_symbol = "~";
+          read_only = "  ";
+          format = "[//](black bold) [$path]($style)[$read_only]($read_only_style) ";
+          style = "#7ed1fb";
         };
 
         git_branch = {
-          format = " 󰘬 $branch";
-          style = "bold fg:bright-black bg:#000000";
+          symbol = " ";
+          format = "[//](black bold) [$symbol\\[$branch\\]]($style) ";
+          style = "bold green";
         };
 
         git_status = {
-          format = " $conflicted$untracked$modified$staged$renamed$deleted$ahead_behind$stashed";
-          style = "cyan";
-          conflicted = "";
-          untracked = "";
-          modified = "";
-          staged = "";
-          renamed = "";
-          deleted = "";
-          stashed = "≡";
+          disabled = false;
+          format = "[ \$all_status \$ahead_behind](\$style) ";
+          style = "bold green";
+          conflicted = "🏳";
+          up_to_date = "";
+          untracked = " ";
+          ahead = "⇡\${count}";
+          diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
+          behind = "⇣\${count}";
+          stashed = " ";
+          modified = " ";
+          staged = "[++\\($count\\)](green)";
+          renamed = "襁 ";
+          deleted = " ";
         };
 
-        git_state = {
-          format = ''\([$state( $progress_current/$progress_total)]($style)\) '';
-          style = "cyan";
+        kubernetes = {
+          format = "via [󱃾 \$context\\(\$namespace\\)](bold purple) ";
+          disabled = false;
         };
+
+        vagrant.disabled = true;
+        docker_context.disabled = true;
+        helm.disabled = true;
+
+        python = {
+          symbol = "󰌠";
+          python_binary = ["./venv/bin/python" "python" "python3" "python2"];
+          format = "[//](black bold) [\${symbol} \${pyenv_prefix}(\${version} )(\\($virtualenv\\) )](\$style) ";
+        };
+
+        nodejs.disabled = true;
+        ruby.disabled = true;
+        terraform.disabled = true;
       };
     };
   };
