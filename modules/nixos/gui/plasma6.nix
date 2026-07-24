@@ -18,6 +18,7 @@
     qbittorrent-enhanced
     lact
     appimage-run
+    starsector
   ];
 
   systemd.packages = with pkgs; [ lact ];

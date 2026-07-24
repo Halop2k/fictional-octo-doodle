@@ -24,6 +24,7 @@
   };
 
   hardware.spacenavd.enable = true;
+  hardware.steam-hardware.enable = true;
 
   system.stateVersion = "25.11";
 }
